@@ -1,0 +1,18 @@
+{% extends "main.twig" %}
+{% block panel %}
+    class = "panel panel-primary"
+{% endblock %}
+{% block header %}
+    Quadratic equation
+{% endblock %}
+ {% block content %}
+     <form class="navbar-form " action="#" method="post">
+         <!-- set Form which create with FormServiceProvider-->
+         {{ form_widget(form) }}
+         <p class="navbar-form navbar-right ">
+             <button class="btn btn-lg btn-primary btn-block" type="submit">Calculate</button>
+         </p>
+     </form>
+ {% endblock %}
+
+

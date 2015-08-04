@@ -1,0 +1,17 @@
+{% extends "main.twig" %}
+{% block panel %}
+    class="panel panel-success"
+{% endblock %}
+{% block header %}
+    Solutions
+{% endblock %}
+ {% block content %}
+     {% if result %}
+         <p>Equation {{ a }}x<sup>2</sup> + {{ b }}x + {{ c }} = 0 has solution:</p>
+         <p>Roots are equals {{ result.0 }} and {{ result.1 }}</p>
+     {% else %}
+         <p> Equation {{ a }}x<sup>2</sup> + {{ b }}x + {{ c }} = 0 is not solutions</p>
+     {% endif %}
+ {% endblock %}
+
+

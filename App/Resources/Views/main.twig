@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'head.twig' %}
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div {% block panel %} {% endblock %} >
+            <!-- header-->
+            <div class="panel-heading">
+                <h1 style="text-align: center" class="panel-title">
+                    {% block header %}
+                    {% endblock %}
+                </h1>
+            </div>
+            <!-- end header -->
+            <!-- content -->
+            <div class="panel-body">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <!-- end content-->
+        </div>
+        <!--footer-->
+        {% include 'footer.twig' %}
+        <!--end footer-->
+    </div>
+</div>
+</body>

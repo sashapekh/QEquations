@@ -1,0 +1,15 @@
+/* block content */
+.panel-body p {
+    font-size: 20px;
+}
+
+#InputValue div {
+    float: left;
+}
+
+#InputValue label {
+    float: right;
+    margin: 5px 5px 0 5px;
+    font-size: 20px;
+    color: #719ef0;
+}
