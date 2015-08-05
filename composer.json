@@ -18,9 +18,7 @@
 
   "autoload":{
     "psr-0":{
-      "App": "App/",
-      "Provider": "Providers/",
-      "Tests":"Test/"
+      "App": "App/"
     }
   }
 }

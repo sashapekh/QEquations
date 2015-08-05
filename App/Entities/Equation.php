@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entities;
 
 use Doctrine\ORM\Mapping\Entity;
@@ -13,13 +12,13 @@ use Doctrine\ORM\Mapping\GeneratedValue;
  * @Entity
  * @Table(name="equations")
  */
-class Coefficient
+class Equation
 {
-    /**
-     * @Id
-     * @Column(type="integer")
-     * @GeneratedValue(strategy="AUTO")
-     */
+/**
+* @Id
+* @Column(type="integer")
+* @GeneratedValue(strategy="AUTO")
+*/
     protected $id;
 
     /**
@@ -38,6 +37,18 @@ class Coefficient
     protected $coefC;
 
     /**
+     * @param float $a
+     * @param float $b
+     * @param float $c
+     */
+    public function __construct($a, $b, $c)
+    {
+        $this->coefA = $a;
+        $this->coefB = $b;
+        $this->coefC = $c;
+    }
+
+    /**
      * Get id
      *
      * @return integer
@@ -48,29 +59,26 @@ class Coefficient
     }
 
     /**
-     * Coefficient of quadratic equation
-     * @param float $coefA
-     * @param float $coefB
-     * @param float $coefC
-     * @return $this
+     * @return float
      */
-    public function setCoefficient($coefA, $coefB, $coefC)
+    public function getCoefA()
     {
-        $this->coefA = $coefA;
-        $this->coefB = $coefB;
-        $this->coefC = $coefC;
-
-        return $this;
+        return $this->coefA;
     }
 
     /**
-     * @return array
+     * @return float
      */
-    public function getCoefficient()
+    public function getCoefB()
     {
-        $data = array($this->coefA, $this->coefB, $this->coefC);
+        return $this->coefB;
+    }
 
-        return $data;
+    /**
+     * @return float
+     */
+    public function getCoefC()
+    {
+        return $this->coefC;
     }
 }
-

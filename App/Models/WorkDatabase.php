@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Entities\Coefficient;
-use Symfony\Component\Config\Definition\Exception\Exception;
+use App\Entities\Equation;
 
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 class WorkDatabase
 {
@@ -41,12 +41,11 @@ class WorkDatabase
      */
     public function insertData($data)
     {
-        $newEquations = new Coefficient();
-        $newEquations->setCoefficient($data['coefA'], $data['coefB'], $data['coefC']);
+        $newEquations = new Equation($data['coefA'], $data['coefB'], $data['coefC']);
         $this->app['orm.em']->persist($newEquations);
-        $this->app['orm.em']->flush();
+       $this->app['orm.em']->flush();
 
-        return $newEquations->getId();
+       return $newEquations->getId();
     }
 
     /**
@@ -55,21 +54,10 @@ class WorkDatabase
      */
     public function fetchingData($id)
     {
-        $coeff = $this->app['orm.em']->getRepository('App\Entities\Coefficient')->findOneById($id);
+        $coeff = $this->app['orm.em']->getRepository('App\Entities\Equation')->findOneById($id);
         $this->validateGetData($coeff, $id);
 
         return $coeff;
-    }
-
-    /**
-     * @param  int $id
-     */
-    public function updateData($id)
-    {
-        $post = $this->app['orm.em']->getRepository('App\Entities\Coefficient')->findOneById($id);
-        $this->validateGetData($post, $id);
-        $post->setValue(12);
-        $this->app['orm.em']->flush();
     }
 
     /**
@@ -77,7 +65,7 @@ class WorkDatabase
      */
     public function deletingData($id)
     {
-        $post = $this->app['orm.em']->getRepository('App\Entities\Coefficient')->findOneById($id);
+        $post = $this->app['orm.em']->getRepository('App\Entities\Equation')->findOneById($id);
         $this->validateGetData($post, $id);
         $this->app['orm.em']->remove($post);
         $this->app['orm.em']->flush();

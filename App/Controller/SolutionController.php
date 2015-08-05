@@ -21,7 +21,9 @@ class SolutionController implements ControllerProviderInterface
         /**
          * get data from a database record id
          */
-        $data = $app['doctrine.manager']->fetchingData($id)->getCoefficient();
+        $data[0] = $app['doctrine.manager']->fetchingData($id)->getCoefA();
+        $data[1] = $app['doctrine.manager']->fetchingData($id)->getCoefB();
+        $data[2] = $app['doctrine.manager']->fetchingData($id)->getCoefC();
         /**
          * deleting data from a database record id
          */
